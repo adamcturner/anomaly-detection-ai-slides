@@ -106,10 +106,63 @@ h1{font-size:3.1cqw;font-weight:700;letter-spacing:-.02em;line-height:1.1}
 .path .tag{color:var(--dim);margin-bottom:.4cqw}
 .path svg{width:100%;display:block}
 .path text{font-family:Arial,Helvetica,sans-serif}
+
+/* ---------- summary slide ---------- */
+.prod{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8cqw;margin-top:2.6cqw}
+.pc{background:var(--card);border-radius:.7cqw;padding:2cqw 2.1cqw;border-top:.3cqw solid var(--c);height:33cqw;position:relative}
+.pc.light{--c:var(--purple);box-shadow:0 0 0 .15cqw rgba(130,66,232,.7)}
+.pc.none{--c:var(--dim)}
+.pc h2{font-size:2.3cqw;line-height:1.15;min-height:5.4cqw}
+.pc .lvl{font-size:3.4cqw;font-weight:700;color:var(--c);margin-top:1cqw;letter-spacing:-.02em}
+.meter{display:grid;grid-template-columns:repeat(3,1fr);gap:.5cqw;margin-top:1.2cqw}
+.meter i{height:1.3cqw;border-radius:.3cqw;background:#16405F}
+.meter i.on{background:var(--c)}
+.mlab{display:flex;justify-content:space-between;font-size:.95cqw;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-top:.6cqw}
+.pc p{font-size:1.35cqw;color:var(--muted);line-height:1.4;margin-top:2cqw;border-top:.08cqw solid var(--line);padding-top:1.4cqw}
+.pc p b{color:#fff}
+
+.sum{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.8cqw;margin-top:2.6cqw}
+.sc{background:var(--card);border-radius:.7cqw;padding:1.9cqw 2cqw;border-top:.3cqw solid var(--c);height:33cqw}
+.sc.td{--c:var(--teal)} .sc.o1{--c:var(--blue)} .sc.o2{--c:var(--purple)}
+.sc .tag{color:var(--c)}
+.sc h2{font-size:2cqw;margin:.7cqw 0 1cqw;line-height:1.2}
+.sc li{list-style:none;font-size:1.3cqw;color:var(--muted);line-height:1.4;padding:.8cqw 0 .8cqw 1.6cqw;position:relative;border-top:.08cqw solid var(--line)}
+.sc li::before{content:"";position:absolute;left:0;top:1.3cqw;width:.7cqw;height:.7cqw;border-radius:50%;background:var(--c)}
+.sc li b{color:#fff}
 </style>
 </head>
 <body>
 <div class="deck">
+
+<!-- ================= SUMMARY ================= -->
+<section class="slide">
+  <h1>AI Usage by Product</h1>
+  <p class="sub">Where AI is used in each Data Threat Analytics product today</p>
+  <div class="prod">
+    <div class="pc light">
+      <h2>Anomaly Detection</h2>
+      <div class="lvl">Light</div>
+      <div class="meter"><i class="on"></i><i></i><i></i></div>
+      <div class="mlab"><span>None</span><span>Extensive</span></div>
+      <p><b>Azure OpenAI</b> classifies file churn as an OS or system update, which suppresses those false positive alerts.</p>
+    </div>
+    <div class="pc none">
+      <h2>Threat Monitoring</h2>
+      <div class="lvl">None</div>
+      <div class="meter"><i></i><i></i><i></i></div>
+      <div class="mlab"><span>None</span><span>Extensive</span></div>
+      <p>Scans backups for known indicators using file hashes and YARA rules.</p>
+    </div>
+    <div class="pc none">
+      <h2>Sensitive Data Discovery</h2>
+      <div class="lvl">None</div>
+      <div class="meter"><i></i><i></i><i></i></div>
+      <div class="mlab"><span>None</span><span>Extensive</span></div>
+      <p>No AI used today.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Prepared by Adam Turner</span><span>Anomaly Detection AI</span></div>
+</section>
 
 <!-- ================= SLIDE 1 ================= -->
 <section class="slide">
@@ -283,6 +336,43 @@ h1{font-size:3.1cqw;font-weight:700;letter-spacing:-.02em;line-height:1.1}
         <rect x="995" y="100" width="110" height="28" rx="14" fill="rgba(255,59,133,.15)" stroke="#FF3B85"/><text x="1050" y="119" fill="#FF3B85">Recover</text>
       </g>
     </svg>
+  </div>
+  <div class="foot"><span>Prepared by Adam Turner</span><span>Anomaly Detection AI</span></div>
+</section>
+
+<!-- ================= CLOSING SUMMARY ================= -->
+<section class="slide">
+  <h1>AI Usage with Data Threat Analytics</h1>
+  <p class="sub">One product uses AI today. Two concepts extend it to threat hunting and log analysis</p>
+  <div class="sum">
+    <div class="sc td">
+      <div class="tag">In product today</div>
+      <h2>Anomaly Detection</h2>
+      <ul>
+        <li><b>Azure OpenAI</b> classifies file churn as an OS or system update</li>
+        <li>Sends directory paths and file extensions only</li>
+        <li>Suppressed updates never reach the Stage 2 entropy check or the user</li>
+        <li>Isolated tenant, in-memory processing, no training on customer data, tenant opt-out</li>
+      </ul>
+    </div>
+    <div class="sc o1">
+      <div class="tag">Concept</div>
+      <h2>Threat Monitoring and Hunting</h2>
+      <ul>
+        <li>No AI today: hashes and YARA rules</li>
+        <li><b>AI file targeting</b> chooses which files and paths to scan</li>
+        <li><b>AI analysis of the whole OS</b> examines binaries, services, configuration and persistence</li>
+      </ul>
+    </div>
+    <div class="sc o2">
+      <div class="tag">Concept</div>
+      <h2>Backup Scanning for Logs</h2>
+      <ul>
+        <li>OS and cloud account logs protected in backup</li>
+        <li><b>AI log analysis</b> reconstructs the attack path</li>
+        <li>Output sorts what to recover from what to clean</li>
+      </ul>
+    </div>
   </div>
   <div class="foot"><span>Prepared by Adam Turner</span><span>Anomaly Detection AI</span></div>
 </section>
