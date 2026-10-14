@@ -248,6 +248,7 @@ h1{font-size:3.1cqw;font-weight:700;letter-spacing:-.02em;line-height:1.1}
         <li>Prioritizes files by location, type and recent change</li>
         <li>Narrows scan scope on each snapshot</li>
         <li>Shortens time to a verdict across many snapshots</li>
+        <li><b style="color:#fff">Magika</b> (Google, open source) identifies true file type from content, not extension: 200+ types, ~99% accuracy, ~5 ms per file</li>
       </ul>
       <div class="scope"><div class="lab">Files examined by AI</div>
         <div class="fs"><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i class="on"></i><i></i><i></i><i class="on"></i></div></div>
@@ -360,7 +361,7 @@ h1{font-size:3.1cqw;font-weight:700;letter-spacing:-.02em;line-height:1.1}
       <h2>Threat Monitoring and Hunting</h2>
       <ul>
         <li>No AI today: hashes and YARA rules</li>
-        <li><b>AI file targeting</b> chooses which files and paths to scan</li>
+        <li><b>AI file targeting</b> chooses which files and paths to scan, with Magika for content-based file type detection</li>
         <li><b>AI analysis of the whole OS</b> examines binaries, services, configuration and persistence</li>
       </ul>
     </div>
